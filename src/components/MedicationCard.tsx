@@ -33,7 +33,7 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
 
         <div className="ml-auto">
           <Button 
-            texto={isTaken ? 'Desmarcar' : 'Tomar'}
+            texto={isTaken ? 'Tomado' : 'Tomar'}
           />
         </div>
         

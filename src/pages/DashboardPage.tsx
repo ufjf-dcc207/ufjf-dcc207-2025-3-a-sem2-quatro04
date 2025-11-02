@@ -1,35 +1,39 @@
-import Card from "../components/Card";
-import Button from "../components/button";
-import dadosPlano from "../data/dadosPlano.json"
-import Icon from "../components/Icon";
+import React from 'react';
+
+import dadosPlano from "../data/dadosPlano.json";
+import PatientHeader from '../components/PatientHeader';
+import MedicationCard from '../components/MedicationCard';
 
 export default function DashboardPage() {
+
+  const paciente = dadosPlano.paciente;
+  const remedioManha = dadosPlano.horarios[0].medicamentos[0]; // Omeprazol
+  const remedioTarde = dadosPlano.horarios[1].medicamentos[0]; // Paracetamol
+
   return (
-    // div principal
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-      {/* painel central */}
-      <div className="max-w-4xl w-full bg-white rounded-lg shadow-md p-6">
-        {/* título da página */}
-        <h1 className="text-2xl font-bold text-center text-blue-700 mb-6">
-          Plano de Medicação Diária
-        </h1>
-
-        {/* container pros cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* .map percorre cada objeto dentro do array vindo do JSON */}
-          {dadosPlano.map((item) => (
-            <Card
-              key={item.id}
-              titulo={item.titulo}
-              descricao={item.descricao}
-              imagem={`/assets/${item.imagem}`}
-            />
-          ))}
-        </div>
-
-        {/* botão */}
-        <div className="mt-8 flex justify-center">
-          <Button texto="Adicionar novo medicamento" />
+      
+      <div className="max-w-2xl w-full">
+        <h2 className="text-xs font-semibold text-gray-500 mb-2 uppercase">Testando: PatientHeader.tsx</h2>
+        <PatientHeader paciente={paciente} />
+        <h2 className="text-xs font-semibold text-gray-500 mt-8 mb-2 uppercase">Testando: MedicationCard.tsx</h2>
+        
+        <div className="flex flex-col gap-4">
+          <MedicationCard
+            key={remedioManha.id}
+            nome={remedioManha.nome}
+            dosagem={remedioManha.dosagem}
+            horario={remedioManha.horario}
+            status={remedioManha.status} // "pendente"
+          />
+          
+          <MedicationCard
+            key={remedioTarde.id}
+            nome={remedioTarde.nome}
+            dosagem={remedioTarde.dosagem}
+            horario={remedioTarde.horario}
+            status="tomado" // Forçado para "tomado"
+          />
         </div>
       </div>
     </div>
