@@ -1,20 +1,50 @@
-[
-  {
-    "id": 1,
-    "titulo": "Omeprazol",
-    "descricao": "Tomar 1 comprimido às 8h",
-    "imagem": "omeprazol.jpg"
+{
+  "paciente": {
+    "nome": "José",
+    "fotoUrl": "/assets/avatar.png"
   },
-  {
-    "id": 2,
-    "titulo": "Paracetamol",
-    "descricao": "Tomar 1 comprimido às 18h",
-    "imagem": "paracetamol.jpg"
-  },
-  {
-    "id": 3,
-    "titulo": "Tylenol",
-    "descricao": "Tomar 1 comprimido às 20h",
-    "imagem": "tylenol.jpg"
-  }
-]
+  "horarios": [
+    {
+      "id": "h1",
+      "titulo": "Manhã",
+      "icone": "sun",
+      "medicamentos": [
+        {
+          "id": "m1",
+          "nome": "Omeprazol",
+          "dosagem": "1 comprimido",
+          "horario": "08:00",
+          "status": "pendente"
+        }
+      ]
+    },
+    {
+      "id": "h2",
+      "titulo": "Tarde",
+      "icone": "clock",
+      "medicamentos": [
+        {
+          "id": "m2",
+          "nome": "Paracetamol",
+          "dosagem": "1 comprimido",
+          "horario": "18:00",
+          "status": "pendente"
+        }
+      ]
+    },
+    {
+      "id": "h3",
+      "titulo": "Noite",
+      "icone": "moon",
+      "medicamentos": [
+        {
+          "id": "m3",
+          "nome": "Tylenol",
+          "dosagem": "1 comprimido",
+          "horario": "20:00",
+          "status": "pendente"
+        }
+      ]
+    }
+  ]
+}
