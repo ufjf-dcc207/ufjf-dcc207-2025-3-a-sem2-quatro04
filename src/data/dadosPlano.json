@@ -1,7 +1,7 @@
 {
   "paciente": {
     "nome": "José",
-    "fotoUrl": "/public/assets/old man.jpg"
+    "fotoUrl": "/public/assets/old_man.jpg"
   },
   "horarios": [
     {
