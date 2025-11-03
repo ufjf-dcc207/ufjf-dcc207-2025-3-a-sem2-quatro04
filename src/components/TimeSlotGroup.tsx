@@ -27,7 +27,7 @@ export default function TimeSlotGroup ({ titulo, icone, medicamentos}: TimeSlotG
     return (
         <Card>
             <TimeSlotHeader titulo = {titulo} icone={icone} />
-            <div className="mt-4">
+            <div className="mt-4 flex flex-col gap-4">
                 {medicamentos.map((medicamentos)=>
                     <MedicationCard 
                         key = {medicamentos.id}
