@@ -4,6 +4,7 @@ import dadosPlano from "../data/dadosPlano.json";
 import PatientHeader from '../components/PatientHeader';
 import MedicationCard from '../components/MedicationCard';
 import TimeSlotHeader from '../components/TimeSlotHeader';
+import TimeSlotGroup from '../components/TimeSlotGroup';
 
 export default function DashboardPage() {
 
