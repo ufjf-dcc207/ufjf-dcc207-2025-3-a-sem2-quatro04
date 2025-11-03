@@ -2,46 +2,30 @@ import React from 'react';
 
 import dadosPlano from "../data/dadosPlano.json";
 import PatientHeader from '../components/PatientHeader';
-import MedicationCard from '../components/MedicationCard';
-import TimeSlotHeader from '../components/TimeSlotHeader';
 import TimeSlotGroup from '../components/TimeSlotGroup';
 
 export default function DashboardPage() {
 
-  const paciente = dadosPlano.paciente;
-  const remedioManha = dadosPlano.horarios[0].medicamentos[0]; // Omeprazol
-  const remedioTarde = dadosPlano.horarios[1].medicamentos[0]; // Paracetamol
-  const horarioManha = dadosPlano.horarios[0]
-
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
       
-      <div className="max-w-2xl w-full">
-        <h2 className="text-xs font-semibold text-gray-500 mb-2 uppercase">Testando: PatientHeader.tsx</h2>
-        <PatientHeader paciente={paciente} />
-
-        <h2 className="text-xs font-semibold text-gray-500 mt-8 mb-2 uppercase"> Testando: TimeSlotHeader.tsx</h2>
-        <TimeSlotHeader titulo={horarioManha.titulo} icone={horarioManha.icone as "sun" | "clock" | "moon"}/>
+      <div className="max-w-6xl w-full">
         
-        <h2 className="text-xs font-semibold text-gray-500 mt-8 mb-2 uppercase">Testando: MedicationCard.tsx</h2>
+        <PatientHeader paciente={dadosPlano.paciente} />
         
-        <div className="flex flex-col gap-4">
-          <MedicationCard
-            key={remedioManha.id}
-            nome={remedioManha.nome}
-            dosagem={remedioManha.dosagem}
-            horario={remedioManha.horario}
-            status={remedioManha.status as "pendente" | "tomado"} // "pendente"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
           
-          <MedicationCard
-            key={remedioTarde.id}
-            nome={remedioTarde.nome}
-            dosagem={remedioTarde.dosagem}
-            horario={remedioTarde.horario}
-            status="tomado" // Forçado para "tomado"
-          />
+          {dadosPlano.horarios.map((horario) => (
+            
+            <TimeSlotGroup
+              key={horario.id}
+              titulo={horario.titulo}
+              icone={horario.icone} // Erro crítico para produção
+              medicamentos={horario.medicamentos} // Erro crítico para produção
+            />
+          ))}
         </div>
+
       </div>
     </div>
   );
