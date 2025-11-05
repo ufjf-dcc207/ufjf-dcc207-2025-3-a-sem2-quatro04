@@ -9,7 +9,7 @@ import Button from "./button";
 export type MedicationStatus = 'pendente' | 'tomado';
 
 // Define a interface para os remedios
-export interface MedicationProps {
+export type MedicationProps  = {
     id: string;
     nome: string;
     dosagem: string;
@@ -18,7 +18,7 @@ export interface MedicationProps {
 }
 
 // Define a interface para as props
-interface TimeSlotGroupProps {
+type TimeSlotGroupProps = {
     titulo: string;
     icone: 'sun' | 'moon' | 'afternoon';
     medicamentos: MedicationProps[];

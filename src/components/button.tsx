@@ -2,7 +2,7 @@ import React from "react";
 
 type ButtonProps = {
   texto: string;
-  status: 'tomado' | 'pendente';
+  status?: 'tomado' | 'pendente';
 }
 
 export default function Button({ texto, status = 'pendente' }: ButtonProps) {
