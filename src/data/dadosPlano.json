@@ -14,7 +14,7 @@
           "nome": "Omeprazol",
           "dosagem": "1 comprimido",
           "horario": "08:00",
-          "status": "pendente"
+          "status": "tomado"
         },
         {
           "id": "m1",

@@ -18,7 +18,32 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
   
   const isTaken = status === 'tomado';
 
+  if (isTaken) {
   return (
+    <Card 
+      className="opacity-50 border-2 border-green-300"
+    >
+      <div className="flex items-center w-full">
+        
+        <Icon name="pill" className="text-2xl mr-4" /> 
+        
+        <div className="flex-grow">
+          <Subheading>{nome}</Subheading> 
+          <BodyText className="!text-sm text-gray-500">{dosagem} • {horario}</BodyText> 
+        </div>
+
+        <div className="ml-auto">
+          <Button 
+            texto={'Tomado'}
+            status='tomado'
+          />
+        </div>
+        
+      </div>
+    </Card>
+  );
+  } else {
+    return (
     <Card 
       className={`transition-all ${isTaken ? 'opacity-50 bg-gray-50' : ''}`}
     >
@@ -33,11 +58,13 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
 
         <div className="ml-auto">
           <Button 
-            texto={isTaken ? 'Tomado' : 'Tomar'}
+            texto={'Tomar'}
+            status = 'pendente'
           />
         </div>
         
       </div>
     </Card>
-  );
+    );
+  }
 }
