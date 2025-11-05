@@ -12,22 +12,15 @@
         {
           "id": "m1",
           "nome": "Omeprazol",
-          "dosagem": "1 comprimido",
+          "dosagem": "1 cápsula (20mg)",
           "horario": "08:00",
           "status": "tomado"
         },
         {
           "id": "m1",
-          "nome": "Omeprazol",
-          "dosagem": "1 comprimido",
-          "horario": "08:00",
-          "status": "pendente"
-        },
-        {
-          "id": "m1",
-          "nome": "Omeprazol",
-          "dosagem": "1 comprimido",
-          "horario": "08:00",
+          "nome": "Losartana",
+          "dosagem": "1 comprimido (50mg)",
+          "horario": "09:00",
           "status": "pendente"
         }
       ]
@@ -39,9 +32,23 @@
       "medicamentos": [
         {
           "id": "m2",
-          "nome": "Paracetamol",
-          "dosagem": "1 comprimido",
-          "horario": "18:00",
+          "nome": "Cimegripe",
+          "dosagem": "1 comprimido (400mg)",
+          "horario": "13:00",
+          "status": "pendente"
+        },
+        {
+          "id": "m4",
+          "nome": "Vitamina D",
+          "dosagem": "10 gotas",
+          "horario": "15:30",
+          "status": "tomado"
+        },
+        {
+          "id": "m4",
+          "nome": "Vitamina C",
+          "dosagem": "1 comprimido enfervecente",
+          "horario": "17:00",
           "status": "pendente"
         }
       ]
@@ -57,6 +64,13 @@
           "dosagem": "1 comprimido",
           "horario": "20:00",
           "status": "pendente"
+        },
+        {
+          "id": "m6",
+          "nome": "Melatonina",
+          "dosagem": "1 cápsula (3mg)",
+          "horario": "21:30",
+          "status": "tomado"
         }
       ]
     }
