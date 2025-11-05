@@ -21,7 +21,7 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
   if (isTaken) {
   return (
     <Card 
-      className="opacity-50 border-2 border-[#12b36d]"
+      className="opacity-50 border border-gray-300"
     >
       <div className="flex items-center w-full">
         
@@ -45,7 +45,7 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
   } else {
     return (
     <Card 
-      className={`transition-all ${isTaken ? 'opacity-50 bg-gray-50' : ''}`}
+      className="border border-gray-200"
     >
       <div className="flex items-center w-full">
         

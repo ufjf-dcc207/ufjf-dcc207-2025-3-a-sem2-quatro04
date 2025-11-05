@@ -7,7 +7,7 @@ import TimeSlotGroup from '../components/TimeSlotGroup';
 export default function DashboardPage() {
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#fcfafa] to-[#cddeea] flex flex-col items-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-[#fcfafa] to-[#B2D4ED] flex flex-col items-center p-6">
       
       <div className="max-w-6xl w-full">
         
