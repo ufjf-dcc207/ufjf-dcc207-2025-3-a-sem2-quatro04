@@ -3,7 +3,7 @@ import { Subheading } from "./Typography";
 
 type TimeSlotHeaderProps = {
     titulo: string;
-    icone: "sun" | "clock" | "moon";
+    icone: "sun" | "afternoon" | "moon";
 }
 
 export default function TimeSlotHeader ({titulo, icone}: TimeSlotHeaderProps) {

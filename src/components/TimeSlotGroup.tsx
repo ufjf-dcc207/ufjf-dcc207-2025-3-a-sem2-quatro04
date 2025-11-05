@@ -19,7 +19,7 @@ export interface MedicationProps {
 // Define a interface para as props
 interface TimeSlotGroupProps {
     titulo: string;
-    icone: 'sun' | 'moon' | 'clock';
+    icone: 'sun' | 'moon' | 'afternoon';
     medicamentos: MedicationProps[];
 }
 

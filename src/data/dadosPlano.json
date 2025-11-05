@@ -35,7 +35,7 @@
     {
       "id": "h2",
       "titulo": "Tarde",
-      "icone": "clock",
+      "icone": "afternoon",
       "medicamentos": [
         {
           "id": "m2",

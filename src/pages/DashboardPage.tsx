@@ -20,7 +20,7 @@ export default function DashboardPage() {
             <TimeSlotGroup
               key={horario.id}
               titulo={horario.titulo}
-              icone={horario.icone} // Erro crítico para produção
+              icone={horario.icone as "sun"|"afternoon"|"moon"} // Erro crítico para produção
               medicamentos={horario.medicamentos} // Erro crítico para produção
             />
           ))}

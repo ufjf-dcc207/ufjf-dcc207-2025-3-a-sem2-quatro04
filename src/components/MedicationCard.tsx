@@ -21,7 +21,7 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
   if (isTaken) {
   return (
     <Card 
-      className="opacity-50 border-2 border-green-300"
+      className="opacity-50 border-2 border-[#12b36d]"
     >
       <div className="flex items-center w-full">
         

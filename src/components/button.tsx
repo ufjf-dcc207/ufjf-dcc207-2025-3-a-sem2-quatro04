@@ -9,7 +9,7 @@ export default function Button({ texto, status = 'pendente' }: ButtonProps) {
   
   if (status === 'tomado') {
     return (
-      <button className="bg-[#35c94e] text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-[#16b630] transition">
+      <button className="bg-[#12b36d] text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-[#10a564] transition">
         {texto}
       </button>
     );
