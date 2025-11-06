@@ -1,5 +1,3 @@
-import React from "react";
-
 type ButtonProps = {
   texto: string;
   status?: 'tomado' | 'pendente';
