@@ -1,6 +1,3 @@
-import React from 'react';
-
-
 import Card from './Card'; 
 import Icon from './Icon';
 import { Subheading, BodyText } from './Typography'; 
@@ -27,9 +24,9 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
         
         <Icon name="pill" className="text-2xl mr-4" /> 
         
-        <div className="flex-grow">
+        <div>
           <Subheading>{nome}</Subheading> 
-          <BodyText className="!text-sm text-gray-500">{dosagem} • {horario}</BodyText> 
+          <BodyText className="text-sm text-gray-500">{dosagem} • {horario}</BodyText> 
         </div>
 
         <div className="ml-auto">
@@ -51,9 +48,9 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
         
         <Icon name="pill" className="text-2xl mr-4" /> 
         
-        <div className="flex-grow">
+        <div>
           <Subheading>{nome}</Subheading> 
-          <BodyText className="!text-sm text-gray-500">{dosagem} • {horario}</BodyText> 
+          <BodyText className="text-sm text-gray-500">{dosagem} • {horario}</BodyText> 
         </div>
 
         <div className="ml-auto">

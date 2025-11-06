@@ -1,8 +1,8 @@
-import React from "react";
+import { type ReactNode } from "react";
 
 //define o formato do componente card
 export type CardProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }
 

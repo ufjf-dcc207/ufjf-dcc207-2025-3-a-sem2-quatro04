@@ -1,9 +1,6 @@
-import React from "react";
-
 import Card from "./Card";
 import TimeSlotHeader from "./TimeSlotHeader";
 import MedicationCard from "./MedicationCard";
-import Button from "./button";
 
 export type MedicationStatus = 'pendente' | 'tomado';
 

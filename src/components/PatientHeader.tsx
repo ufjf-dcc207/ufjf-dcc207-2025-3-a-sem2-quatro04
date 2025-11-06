@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Avatar } from "./Avatar";
 import { Heading, BodyText } from "./Typography";
 import Button from "./button";
