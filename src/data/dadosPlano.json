@@ -14,7 +14,7 @@
           "nome": "Omeprazol",
           "dosagem": "1 cápsula (20mg)",
           "horario": "08:00",
-          "status": "tomado"
+          "status": "pendete"
         },
         {
           "id": "m2",
@@ -42,7 +42,7 @@
           "nome": "Vitamina D",
           "dosagem": "10 gotas",
           "horario": "15:30",
-          "status": "tomado"
+          "status": "pendente"
         },
         {
           "id": "m5",
@@ -70,7 +70,7 @@
           "nome": "Melatonina",
           "dosagem": "1 cápsula (3mg)",
           "horario": "21:30",
-          "status": "tomado"
+          "status": "pedente"
         }
       ]
     }
