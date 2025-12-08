@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import Card from './Card'; 
 import Icon from './Icon';
 import { Subheading, BodyText } from './Typography'; 
@@ -13,10 +14,43 @@ export type MedicationCardProps = {
 
 export default function MedicationCard({ nome, dosagem, horario, status }: MedicationCardProps) {
   
+  //controla se o card deve estar visivel (inicialmente sim)
+  const [isVisible, setIsVisible] = useState(true);
+  const [isHovering, setIsHovering] = useState(false)
+  
+  function cardOff () {
+    setIsVisible(false);
+  }
+
+  function mouseEnter () {
+    setIsHovering(true);
+  }
+
+  function mouseExit() {
+    setIsHovering(false);
+  }
+
+  if (!isVisible) return null;
+
   const isTaken = status === 'tomado';
+
+  const buttonDelete = isHovering ? (
+    <Button 
+      texto = {'Excluir'}
+      status = 'pendente'
+      onClick={cardOff}
+      tipo='simples'
+    />
+  ) : null
+
 
   if (isTaken) {
   return (
+    <div 
+      onMouseEnter = {mouseEnter}
+      onMouseLeave = {mouseExit}
+      className='mb-4'
+        >
     <Card 
       className="opacity-50 border border-gray-300"
     >
@@ -29,18 +63,24 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
           <BodyText className="text-sm text-gray-500">{dosagem} • {horario}</BodyText> 
         </div>
 
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center space-x-2">
           <Button 
             texto={'Tomado'}
             status='tomado'
           />
         </div>
-        
       </div>
     </Card>
+    <div className='flex justify-center mt-2'>{buttonDelete}</div>
+    </div>
   );
   } else {
     return (
+      <div
+        onMouseEnter = {mouseEnter}
+        onMouseLeave = {mouseExit}
+        className='mb-4'
+        >
     <Card 
       className="border border-gray-200"
     >
@@ -53,15 +93,16 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
           <BodyText className="text-sm">{dosagem} • {horario} teste</BodyText> 
         </div>
 
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center space-x-2">
           <Button 
             texto={'Tomar'}
             status = 'pendente'
           />
         </div>
-        
       </div>
     </Card>
+    <div className='flex justify-center mt-2'>{buttonDelete}</div>
+    </div>
     );
   }
 }
