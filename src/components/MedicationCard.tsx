@@ -10,9 +10,10 @@ export type MedicationCardProps = {
   dosagem: string;
   horario: string;
   status: 'tomado' | 'pendente';
+  apenasPendentes?: boolean;
 }
 
-export default function MedicationCard({ nome, dosagem, horario, status }: MedicationCardProps) {
+export default function MedicationCard({ nome, dosagem, horario, status, apenasPendentes = false }: MedicationCardProps) {
   
   const [isClicked, setIsClicked] = useState(status);
 
@@ -42,6 +43,10 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
 
   function mouseExit() {
     setIsHovering(false);
+  }
+
+  if (apenasPendentes && isClicked === 'tomado') {
+    return null;
   }
 
   if (!isVisible) return null;
