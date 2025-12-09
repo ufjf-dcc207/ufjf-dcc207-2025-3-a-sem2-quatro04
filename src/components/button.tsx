@@ -9,44 +9,24 @@ type ButtonProps = {
 }
 
 export default function Button({ texto, status = 'pendente' , textoAtivo = "Tomado", tipo, onClick}: ButtonProps) {
-  
-  const [isClicked, setIsClicked] = useState(status);
-
-  function toNext(){
-
-    if (tipo === 'simples' || status === 'excluir') {
-      return; 
-    }
-
-      switch (isClicked){
-        case "pendente":
-            setIsClicked("tomado");
-            break;
-        case "tomado":
-            setIsClicked("pendente");
-            break;
-      }
-  }
-  //o clique chama onClick se exisitir OU toNext
-  const tratarClick = onClick || toNext;
 
   if (status === 'excluir') {
     return (
-      <button onClick={tratarClick} className='bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-red-700 transition'> {texto} </button>
+      <button onClick={onClick} className='bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-red-700 transition'> {texto} </button>
     )
   }
   
-  if (isClicked === 'tomado') {
+  if (status === 'tomado') {
     return (
-      <button onClick={tratarClick} className="bg-[#12b36d] text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-[#10a564] transition">
+      <button onClick={onClick} className="bg-[#12b36d] text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-[#10a564] transition">
         {textoAtivo}
       </button>
     );
   }
 
-  if( isClicked  === 'pendente')
+  if( status  === 'pendente')
    return (
-     <button onClick={tratarClick} className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition">
+     <button onClick={onClick} className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition">
        {texto}
      </button>
    );

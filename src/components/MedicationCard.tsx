@@ -14,6 +14,20 @@ export type MedicationCardProps = {
 
 export default function MedicationCard({ nome, dosagem, horario, status }: MedicationCardProps) {
   
+  const [isClicked, setIsClicked] = useState(status);
+
+  function toNext(){
+
+      switch (isClicked){
+        case "pendente":
+            setIsClicked("tomado");
+            break;
+        case "tomado":
+            setIsClicked("pendente");
+            break;
+      }
+  }
+
   //controla se o card deve estar visivel (inicialmente sim)
   const [isVisible, setIsVisible] = useState(true);
   const [isHovering, setIsHovering] = useState(false)
@@ -32,12 +46,12 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
 
   if (!isVisible) return null;
 
-  const isTaken = status === 'tomado';
+  const isTaken = isClicked === 'tomado';
 
   const buttonDelete = isHovering ? (
     <Button 
       texto = {'Excluir'}
-      status = 'pendente'
+      status = 'excluir'
       onClick={cardOff}
       tipo='simples'
     />
@@ -67,6 +81,7 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
           <Button 
             texto={'Tomado'}
             status='tomado'
+            onClick={toNext}
           />
         </div>
       </div>
@@ -90,13 +105,14 @@ export default function MedicationCard({ nome, dosagem, horario, status }: Medic
         
         <div>
           <Subheading>{nome}</Subheading> 
-          <BodyText className="text-sm">{dosagem} • {horario} teste</BodyText> 
+          <BodyText className="text-sm">{dosagem} • {horario}</BodyText> 
         </div>
 
         <div className="ml-auto flex items-center space-x-2">
           <Button 
             texto={'Tomar'}
             status = 'pendente'
+            onClick={toNext}
           />
         </div>
       </div>
