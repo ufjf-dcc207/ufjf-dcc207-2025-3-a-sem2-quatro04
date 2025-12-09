@@ -6,7 +6,7 @@ type ButtonProps = {
   onClick?: () => void; //add prop opcional pra permitir que o componente pai defina o que acontece ao clicar
 }
 
-export default function Button({ texto, status = 'pendente' , textoAtivo = "Tomado", tipo, onClick}: ButtonProps) {
+export default function Button({ texto, status = 'pendente' , textoAtivo = "Tomado", onClick}: ButtonProps) {
 
   if (status === 'excluir') {
     return (

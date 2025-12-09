@@ -2,7 +2,7 @@ import dadosPlano from "../data/dadosPlano.json";
 import PatientHeader from '../components/PatientHeader';
 import TimeSlotGroup from '../components/TimeSlotGroup';
 import Button from '../components/button';
-import { use, useState } from "react";
+import {useState } from "react";
 
 export default function DashboardPage() {
 
