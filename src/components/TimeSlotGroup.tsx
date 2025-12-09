@@ -27,7 +27,7 @@ type TimeSlotGroupProps = {
 
 export default function TimeSlotGroup ({ titulo, icone, medicamentos, apenasPendentes, modoEdicao, mode}: TimeSlotGroupProps) {
     return (
-        <Card>
+        <Card mode={mode}>
             <TimeSlotHeader titulo = {titulo} icone={icone} mode={mode} />
             <div className="mt-4 flex flex-col gap-4">
                 {medicamentos.map((medicamentos)=>
@@ -39,11 +39,10 @@ export default function TimeSlotGroup ({ titulo, icone, medicamentos, apenasPend
                         horario = {medicamentos.horario}
                         apenasPendentes={apenasPendentes}
                         modoEdicao={modoEdicao}
+                        mode={mode}
                     />
                     )}  
             </div>
-            
         </Card>
-        
     )
 }

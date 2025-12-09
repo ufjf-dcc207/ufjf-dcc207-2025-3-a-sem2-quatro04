@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import Card from './Card'; 
 import Icon from './Icon';
 import { Subheading, BodyText } from './Typography'; 
@@ -12,9 +12,10 @@ export type MedicationCardProps = {
   status: 'tomado' | 'pendente';
   apenasPendentes?: boolean;
   modoEdicao: boolean;
+  mode: "light" | "dark";
 }
 
-export default function MedicationCard({ nome, dosagem, horario, status, apenasPendentes = false, modoEdicao }: MedicationCardProps) {
+export default function MedicationCard({ nome, dosagem, horario, status, apenasPendentes = false, modoEdicao, mode }: MedicationCardProps) {
   
   const [isClicked, setIsClicked] = useState(status);
 
@@ -56,12 +57,12 @@ export default function MedicationCard({ nome, dosagem, horario, status, apenasP
     </div>
   ) : null
 
-
+  if (mode === 'light') {
   if (isTaken) {
   return (
     <div className='mb-4 relative'>
       {buttonDelete}
-    <Card 
+    <Card mode={mode}
       className="opacity-50 border border-gray-300"
     >
       <div className="flex items-center w-full">
@@ -74,7 +75,6 @@ export default function MedicationCard({ nome, dosagem, horario, status, apenasP
         </div>
 
         <div className="ml-auto flex items-center space-x-2">
-          {buttonDelete}
           <Button 
             texto={'Tomado'}
             status='tomado'
@@ -83,7 +83,6 @@ export default function MedicationCard({ nome, dosagem, horario, status, apenasP
         </div>
       </div>
     </Card>
-    <div className='absolute'>{buttonDelete}</div>
     </div>
   );
   } else {
@@ -91,7 +90,7 @@ export default function MedicationCard({ nome, dosagem, horario, status, apenasP
       <div
         className='mb-4 relative'
         >
-    <Card 
+    <Card mode={mode}
       className="border border-gray-200"
     >
       <div className="flex items-center w-full">
@@ -115,5 +114,65 @@ export default function MedicationCard({ nome, dosagem, horario, status, apenasP
     </Card>
     </div>
     );
+  }
+} 
+else {
+    if (isTaken) {
+  return (
+    <div className='mb-4 relative'>
+      {buttonDelete}
+    <Card mode={mode}
+      className="opacity-50 border border-[#4c6892] bg-[#374e70]"
+    >
+      <div className="flex items-center w-full">
+        
+        <Icon name="pill" className="text-2xl mr-4" /> 
+        
+        <div>
+          <Subheading className='text-white'>{nome}</Subheading> 
+          <BodyText className="text-sm text-white">{dosagem} • {horario}</BodyText> 
+        </div>
+
+        <div className="ml-auto flex items-center space-x-2">
+          <Button 
+            texto={'Tomado'}
+            status='tomado'
+            onClick={toNext}
+          />
+        </div>
+      </div>
+    </Card>
+    </div>
+  );
+  } else {
+    return (
+      <div
+        className='mb-4 relative'
+        >
+    <Card mode={mode}
+      className="border border-[#4c6892] bg-[#374e70]"
+    >
+      <div className="flex items-center w-full">
+        
+        <Icon name="pill" className="text-2xl mr-4" /> 
+        
+        <div>
+          <Subheading className='text-white'>{nome}</Subheading> 
+          <BodyText className="text-sm text-white">{dosagem} • {horario}</BodyText> 
+        </div>
+
+        <div className="ml-auto flex items-center space-x-2">
+          {buttonDelete}
+          <Button 
+            texto={'Tomar'}
+            status = 'pendente'
+            onClick={toNext}
+          />
+        </div>
+      </div>
+    </Card>
+    </div>
+    );
+  }
   }
 }

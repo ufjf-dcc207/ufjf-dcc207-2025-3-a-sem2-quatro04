@@ -54,7 +54,10 @@ export default function DashboardPage() {
           />
         </div>
 
-        <PatientHeader paciente={dadosPlano.paciente} />
+        <PatientHeader 
+          paciente={dadosPlano.paciente}
+          mode = 'dark'
+         />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
           
@@ -72,7 +75,7 @@ export default function DashboardPage() {
           ))}
         </div>
           <div className="mt-8 w-full flex justify-center">
-          <Button texto={editButtonStatus} status={editButtonStatus} tipo="simples" onClick={toEditingMode}/>
+          <Button texto={editButtonText} status={editButtonStatus} tipo="simples" onClick={toEditingMode}/>
         </div>
       </div>
     </div>
@@ -99,7 +102,10 @@ export default function DashboardPage() {
           />
         </div>
         
-        <PatientHeader paciente={dadosPlano.paciente} />
+        <PatientHeader 
+          paciente={dadosPlano.paciente}
+          mode = 'light'
+        />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
           
