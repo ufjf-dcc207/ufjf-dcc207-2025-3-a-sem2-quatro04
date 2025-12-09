@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function DashboardPage() {
 
   const [isDarkMode, setIsDarkMode] = useState('light');
+  const [apenasPendentes, setApenasPendentes] = useState(false);
 
   function toDarkMode(){
       switch (isDarkMode){
@@ -19,6 +20,10 @@ export default function DashboardPage() {
       }
   }
 
+  function toggleFiltro() {
+    setApenasPendentes(!apenasPendentes);
+  }
+
   const isDark = isDarkMode === 'dark'; 
 
   if( isDark ){
@@ -27,7 +32,14 @@ export default function DashboardPage() {
       
       <div className="max-w-6xl w-full">
         
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-end mb-4 gap-4">
+
+          <Button 
+            texto={apenasPendentes ? "Mostrar Todos" : "Ocultar Concluídos"}
+            status="pendente"
+            onClick={toggleFiltro} 
+          />
+          
           <Button
             texto="☀️"
             status="pendente"
@@ -46,6 +58,7 @@ export default function DashboardPage() {
               titulo={horario.titulo}
               icone={horario.icone as "sun"|"afternoon"|"moon"}
               medicamentos={horario.medicamentos as any}
+              apenasPendentes={apenasPendentes}
             />
           ))}
         </div>
@@ -62,7 +75,14 @@ export default function DashboardPage() {
       
       <div className="max-w-6xl w-full">
         
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-end mb-4 gap-4">
+
+          <Button 
+            texto={apenasPendentes ? "Mostrar Todos" : "Ocultar Concluídos"}
+            status="pendente"
+            onClick={toggleFiltro} 
+          />
+
           <Button 
             texto="🌙"
             status="pendente"
@@ -81,6 +101,7 @@ export default function DashboardPage() {
               titulo={horario.titulo}
               icone={horario.icone as "sun"|"afternoon"|"moon"}
               medicamentos={horario.medicamentos as any}
+              apenasPendentes={apenasPendentes}
             />
           ))}
         </div>
