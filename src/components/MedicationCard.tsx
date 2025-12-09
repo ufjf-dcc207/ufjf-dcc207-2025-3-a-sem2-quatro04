@@ -11,12 +11,16 @@ export type MedicationCardProps = {
   horario: string;
   status: 'tomado' | 'pendente';
   apenasPendentes?: boolean;
+  modoEdicao: boolean;
 }
 
-export default function MedicationCard({ nome, dosagem, horario, status, apenasPendentes = false }: MedicationCardProps) {
+export default function MedicationCard({ nome, dosagem, horario, status, apenasPendentes = false, modoEdicao }: MedicationCardProps) {
   
   const [isClicked, setIsClicked] = useState(status);
 
+  //controla se o card deve estar visivel (inicialmente sim)
+  const [isVisible, setIsVisible] = useState(true);
+  
   function toNext(){
 
       switch (isClicked){
@@ -28,21 +32,9 @@ export default function MedicationCard({ nome, dosagem, horario, status, apenasP
             break;
       }
   }
-
-  //controla se o card deve estar visivel (inicialmente sim)
-  const [isVisible, setIsVisible] = useState(true);
-  const [isHovering, setIsHovering] = useState(false)
   
   function cardOff () {
     setIsVisible(false);
-  }
-
-  function mouseEnter () {
-    setIsHovering(true);
-  }
-
-  function mouseExit() {
-    setIsHovering(false);
   }
 
   if (apenasPendentes && isClicked === 'tomado') {
@@ -53,23 +45,22 @@ export default function MedicationCard({ nome, dosagem, horario, status, apenasP
 
   const isTaken = isClicked === 'tomado';
 
-  const buttonDelete = isHovering ? (
+  const buttonDelete = modoEdicao ? (
+    <div className="absolute top-0 right-0 transform translate-x-1 -translate-y-1 z-10">
     <Button 
       texto = {'Excluir'}
       status = 'excluir'
       onClick={cardOff}
       tipo='simples'
     />
+    </div>
   ) : null
 
 
   if (isTaken) {
   return (
-    <div 
-      onMouseEnter = {mouseEnter}
-      onMouseLeave = {mouseExit}
-      className='mb-4'
-        >
+    <div className='mb-4 relative'>
+      {buttonDelete}
     <Card 
       className="opacity-50 border border-gray-300"
     >
@@ -83,6 +74,7 @@ export default function MedicationCard({ nome, dosagem, horario, status, apenasP
         </div>
 
         <div className="ml-auto flex items-center space-x-2">
+          {buttonDelete}
           <Button 
             texto={'Tomado'}
             status='tomado'
@@ -97,9 +89,7 @@ export default function MedicationCard({ nome, dosagem, horario, status, apenasP
   } else {
     return (
       <div
-        onMouseEnter = {mouseEnter}
-        onMouseLeave = {mouseExit}
-        className='mb-4 '
+        className='mb-4 relative'
         >
     <Card 
       className="border border-gray-200"
@@ -114,6 +104,7 @@ export default function MedicationCard({ nome, dosagem, horario, status, apenasP
         </div>
 
         <div className="ml-auto flex items-center space-x-2">
+          {buttonDelete}
           <Button 
             texto={'Tomar'}
             status = 'pendente'
@@ -122,7 +113,6 @@ export default function MedicationCard({ nome, dosagem, horario, status, apenasP
         </div>
       </div>
     </Card>
-    <div className='absolute '>{buttonDelete}</div>
     </div>
     );
   }

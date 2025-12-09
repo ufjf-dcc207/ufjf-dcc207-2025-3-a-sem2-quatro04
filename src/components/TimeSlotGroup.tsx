@@ -19,14 +19,16 @@ type TimeSlotGroupProps = {
     icone: 'sun' | 'moon' | 'afternoon';
     medicamentos: MedicationProps[];
     apenasPendentes: boolean;
+    modoEdicao: boolean;
+    mode: "light" | "dark";
 }
 
 
 
-export default function TimeSlotGroup ({ titulo, icone, medicamentos, apenasPendentes}: TimeSlotGroupProps) {
+export default function TimeSlotGroup ({ titulo, icone, medicamentos, apenasPendentes, modoEdicao, mode}: TimeSlotGroupProps) {
     return (
         <Card>
-            <TimeSlotHeader titulo = {titulo} icone={icone} />
+            <TimeSlotHeader titulo = {titulo} icone={icone} mode={mode} />
             <div className="mt-4 flex flex-col gap-4">
                 {medicamentos.map((medicamentos)=>
                     <MedicationCard 
@@ -36,6 +38,7 @@ export default function TimeSlotGroup ({ titulo, icone, medicamentos, apenasPend
                         status = {medicamentos.status}
                         horario = {medicamentos.horario}
                         apenasPendentes={apenasPendentes}
+                        modoEdicao={modoEdicao}
                     />
                     )}  
             </div>
